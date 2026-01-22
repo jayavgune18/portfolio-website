@@ -1,0 +1,81 @@
+
+.nav-unique {
+  animation: navbarDrop 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes navbarDrop {
+  from {
+    transform: translateY(-120%);
+    opacity: 0;
+    filter: blur(12px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.nav-hover-scope:hover .nav-focus {
+  opacity: 0.35;
+}
+
+.nav-hover-scope .nav-focus:hover,
+.nav-hover-scope .nav-link.active {
+  opacity: 1;
+}
+
+.nav-focus {
+  position: relative;
+  transition: transform 0.25s ease, opacity 0.3s ease;
+}
+
+
+.nav-focus:hover {
+  transform: translateY(-4px);
+}
+
+.nav-focus::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  transition: width 0.35s ease;
+  transform: translateX(-50%);
+}
+
+.nav-focus:hover::after,
+.nav-link.active::after {
+  width: 120%;
+}
+
+.logo-glow {
+  color: #38bdf8;
+  animation: glowPulse 2.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+  from {
+    text-shadow: 0 0 5px #38bdf8;
+  }
+  to {
+    text-shadow: 0 0 18px #38bdf8, 0 0 35px #0ea5e9;
+  }
+}
+
+.contact-btn {
+  transition: all 0.25s ease;
+  box-shadow: inset 0 0 0 2px rgba(56, 189, 248, 0.6);
+  color: #38bdf8;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: inset 0 0 0 2px rgba(56, 189, 248, 1),0 0 14px rgba(56, 189, 248, 0.5);
+  color: black;
+  background-color: #38bdf8;
+}
+
