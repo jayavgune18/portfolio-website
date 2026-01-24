@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{
     margin: 0;
     padding: 0;
@@ -10,4 +11,18 @@ body{
     color: white;
     overflow: hidden;
     overflow-y: scroll;
+=======
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    background: transparent;
+}
+body{
+    background: rgb(25, 25, 25);
+    color: white;
+    overflow: hidden;
+    overflow-y: scroll;
+>>>>>>> 2c80f17 (Initial commit)
 }

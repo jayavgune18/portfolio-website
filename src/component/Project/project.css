@@ -1,0 +1,67 @@
+.project-card-tilt {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  perspective: 1000px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  opacity: 0;
+  transform: translateY(50px) rotateZ(-3deg) scale(0.95);
+}
+
+.project-card-tilt.slide-left {
+  transform: translateX(-100px) rotateZ(-3deg) scale(0.95);
+}
+
+.project-card-tilt.slide-right {
+  transform: translateX(100px) rotateZ(3deg) scale(0.95);
+}
+
+.project-card-tilt.in-view {
+  opacity: 1;
+  transform: translateX(0) translateY(0) rotateZ(0deg) scale(1);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.35, 1);
+}
+
+.project-card-tilt:hover {
+  transform: rotateY(8deg) rotateX(3deg) scale(1.05);
+  box-shadow: 0 20px 40px rgba(56, 189, 248, 0.7);
+  z-index: 10;
+}
+
+.project-card-tilt img {
+  transition: transform 0.4s ease;
+}
+
+.project-card-tilt:hover img {
+  transform: scale(1.08);
+}
+
+.project-card-tilt .badge {
+  display: inline-block;
+  transform: translateY(10px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.project-card-tilt:hover .badge {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.row.g-4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.row.g-4:hover .project-card-tilt {
+  opacity: 0.4;
+  transform: scale(0.97);
+}
+
+.row.g-4 .project-card-tilt:hover {
+  opacity: 1 !important;
+  transform: rotateY(8deg) rotateX(3deg) scale(1.05);
+  box-shadow: 0 20px 40px rgba(56, 189, 248, 0.7);
+  z-index: 10;
+}

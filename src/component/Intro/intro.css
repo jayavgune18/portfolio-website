@@ -1,0 +1,130 @@
+/* REMOVE shadow from layout wrapper */
+.right-card {
+  box-shadow: none;
+  padding: 0;
+}
+
+/* MAIN CARD */
+.profile-card {
+  background: linear-gradient(180deg, #0b0f19, #020617);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* HOVER EFFECT (DESKTOP ONLY) */
+.profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 0 1px rgba(56, 189, 248, 0.25),
+    0 20px 40px rgba(56, 189, 248, 0.35);
+}
+
+/* INNER CARD */
+.card-inner {
+  padding: 1.8rem;
+}
+
+/* IMAGE */
+.card-inner img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+
+/* SOCIAL ICONS */
+.social-icon {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-4px);
+  color: #38bdf8;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+  .profile-card {
+    transform: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .profile-card:hover {
+    transform: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+
+.typing {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid skyblue;
+  max-width: fit-content;
+  opacity: 0;
+
+  animation:
+    fadeUp 0.8s ease forwards,
+    typing 3s steps(30, end) forwards 0.5s,
+    blink 0.7s step-end infinite 3.5s;
+}
+
+@keyframes typing {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* INITIAL STATE */
+.profile-animate {
+  opacity: 0;
+  transform: translateX(90px) scale(0.9);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.25, 1, 0.35, 1);
+  will-change: transform, opacity;
+}
+
+/* SCROLL-IN */
+.profile-animate.show {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* FLOATING EFFECT (AFTER LOAD) */
+.profile-animate.show {
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(0) translateY(-8px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
