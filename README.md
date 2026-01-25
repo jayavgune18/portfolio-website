@@ -92,6 +92,9 @@ To run this project locally, follow these steps:
 ### About Section
 ![About Section](./public/images/about.png)
 
+### Skills Section
+![About Section](./public/images/skills.png)
+
 ### Projects Section
 ![Projects Section](./public/images/project.png)
 
