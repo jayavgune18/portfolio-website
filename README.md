@@ -82,7 +82,6 @@ To run this project locally, follow these steps:
    The site will be available at `http://localhost:3000`.
    
    ---
-   ---
 
 ## 📸 Portfolio Screenshots
 
