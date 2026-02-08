@@ -120,7 +120,7 @@ To run this project locally, follow these steps:
 
 Feel free to reach out to me:
 
-- **Email:** [jayavgune18@gmail.com](mailto:jayavgune18@gmail.com)  
-- **LinkedIn:** [Connect with me](https://www.linkedin.com/in/jay-avgune/)  
+- [LinkedIn](https://www.linkedin.com/in/jay-avgune-1316b323a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+- [Instagram](https://www.instagram.com/jay.avgune?igsh=ejF2YW44bXNrZ3Ry)
    
 
