@@ -1,4 +1,4 @@
-# 🚀 Portfolio Website (Front-end) — Jay Avgune
+# 🚀 Portfolio 
 
 <p align="center">
   <img src="./public/personal.png" alt="Jay Avgune" width="120" height="120" style="border-radius: 50%;" />
