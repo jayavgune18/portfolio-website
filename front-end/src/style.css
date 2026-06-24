@@ -1,0 +1,351 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-bg: #0f172a;
+  --color-dark-surface: #1e293b;
+  --color-dark-card: #1e293b;
+  --color-neon-cyan: #06b6d4;
+  --color-neon-purple: #6366f1;
+  --color-neon-pink: #a78bfa;
+  --color-neon-blue: #3b82f6;
+  --color-accent-1: #06b6d4;
+  --color-accent-2: #6366f1;
+  --color-accent-3: #a78bfa;
+  --color-light-bg: #f8fafc;
+  --color-light-surface: #ffffff;
+  --color-light-card: #ffffff;
+  --color-light-text: #0f172a;
+  --color-light-muted: #64748b;
+
+  --font-outfit: "Outfit", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-glow-pulse: glowPulse 2s ease-in-out infinite alternate;
+  --animate-spin-slow: spin 8s linear infinite;
+  --animate-mesh-shift: meshShift 12s ease-in-out infinite alternate;
+  --animate-particle-drift: particleDrift 20s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(1deg); }
+  66% { transform: translateY(-8px) rotate(-1deg); }
+}
+
+@keyframes glowPulse {
+  from { box-shadow: 0 0 20px -5px rgba(6, 182, 212, 0.3), 0 0 40px -10px rgba(6, 182, 212, 0.2); }
+  to { box-shadow: 0 0 30px 0px rgba(6, 182, 212, 0.5), 0 0 60px 10px rgba(6, 182, 212, 0.3); }
+}
+
+@keyframes meshShift {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5%, 3%) scale(1.02); }
+  66% { transform: translate(-3%, 5%) scale(0.98); }
+  100% { transform: translate(2%, -2%) scale(1); }
+}
+
+@keyframes particleDrift {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(6, 182, 212, 0.1); box-shadow: 0 0 5px rgba(6, 182, 212, 0.05); }
+  50% { border-color: rgba(6, 182, 212, 0.3); box-shadow: 0 0 20px rgba(6, 182, 212, 0.1); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatDelayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 0.3; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+@keyframes typingBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes scalePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes hueRotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(6, 182, 212, 0.1),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-border-glow {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+.animate-float-delayed {
+  animation: floatDelayed 4s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 2.5s ease-in-out infinite;
+}
+
+.animate-scale-pulse {
+  animation: scalePulse 2s ease-in-out infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-ping {
+    animation: none !important;
+  }
+}
+
+body {
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.light body {
+  background-color: var(--color-light-bg);
+  color: var(--color-light-text);
+}
+
+body {
+  background-color: var(--color-dark-bg);
+  color: #f1f5f9;
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(6, 182, 212, 0.04), transparent 30%),
+    radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.04), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(167, 139, 250, 0.03), transparent 30%);
+  background-attachment: fixed;
+}
+
+html.light body {
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(6, 182, 212, 0.05), transparent 30%),
+    radial-gradient(circle at 85% 30%, rgba(99, 102, 241, 0.05), transparent 30%);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+html.light ::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #06b6d4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a78bfa, #06b6d4);
+}
+::selection {
+  background: rgba(6, 182, 212, 0.25);
+  color: #fff;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.project-card {
+  perspective: 1400px;
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.glass-panel:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 40px rgba(6, 182, 212, 0.05);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #06b6d4, #6366f1, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html.light .text-gradient {
+  background: linear-gradient(135deg, #0891b2, #6366f1, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html.light .text-white {
+  color: var(--color-light-text) !important;
+}
+
+html.light .text-white\/90 {
+  color: rgba(15, 23, 42, 0.95) !important;
+}
+
+html.light .text-white\/80 {
+  color: rgba(15, 23, 42, 0.9) !important;
+}
+
+html.light .text-white\/70 {
+  color: rgba(15, 23, 42, 0.82) !important;
+}
+
+html.light .text-white\/60 {
+  color: rgba(15, 23, 42, 0.74) !important;
+}
+
+html.light .text-white\/50 {
+  color: rgba(15, 23, 42, 0.62) !important;
+}
+
+html.light .text-white\/40 {
+  color: rgba(15, 23, 42, 0.52) !important;
+}
+
+html.light .text-white\/30 {
+  color: rgba(15, 23, 42, 0.42) !important;
+}
+
+html.light .text-white\/20 {
+  color: rgba(15, 23, 42, 0.32) !important;
+}
+
+html.light .text-white\/10 {
+  color: rgba(15, 23, 42, 0.22) !important;
+}
+
+/* Navbar light mode */
+html.light .navbar-scrolled {
+  background: rgba(248, 250, 252, 0.85) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light .navbar-mobile {
+  background: rgba(248, 250, 252, 0.98) !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light .navbar-mobile-overlay {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+html.light .navbar-hamburger {
+  color: #0f172a !important;
+}
+
+html.light .navbar-logo-text {
+  color: rgba(15, 23, 42, 0.8) !important;
+}
+
+html.light .navbar-logo-dot {
+  color: rgba(15, 23, 42, 0.3) !important;
+}
+
+html.light .navbar-link {
+  color: rgba(15, 23, 42, 0.6) !important;
+}
+
+html.light .navbar-link:hover {
+  color: #0f172a !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .navbar-link-active {
+  color: #0891b2 !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .navbar-mobile-link {
+  color: rgba(15, 23, 42, 0.6) !important;
+}
+
+html.light .navbar-mobile-link:hover {
+  color: #0f172a !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+
+html.light .navbar-close-btn {
+  color: rgba(15, 23, 42, 0.8) !important;
+}
+
+.bg-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+}
+
+html.light .bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
+}
+
+.section-spacing {
+  padding: 6rem 0;
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: 4rem 0;
+  }
+}
